@@ -1,0 +1,83 @@
+<section class="dorne-welcome-area bg-img bg-overlay" style="background-image: url(img/bg.png);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-6"></br></br>
+                    <div class="hero-content"></br></br></br></br></br>
+                        
+                        <h1 style="color:white;font-weight:bold;  text-shadow: 2px 2px 14px #7546E4;">SEARCH YOUR PRODUCT</h1>
+                        
+                    </div>
+                    
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-4">
+<form class="form-inline" method="post" action="search_view.php">  
+
+  
+  <div class="form-group ">
+    <input type="text" class="form-control" name= "country" id="country"  placeholder="Enter Subject ">
+  </div>
+  </div><div class="col-lg-4">
+  <div class="form-group ">
+
+</select>     
+	 </div>
+  </div>
+   
+<div class="col-lg-4">
+  <button type="submit" name="onsearch" id="search_click" class="btn btn-success ">Search</button></div>
+</form>	
+		 	
+</div>
+</div>
+<div class="row">
+                <div class="col-12">
+                    <div class="features-slides owl-carousel">
+                     
+					 <?php
+                     
+					 $result=select("select * from items where category='#country'");
+					 while($r=mysqli_fetch_array($result))
+					 {
+						 extract($r);
+					 ?>
+                        <div class="single-features-area">
+                            <a href="view_detail.php?id=<?=$itemid?>"><img src="admin/images/<?=$image?>" style="height:200px;width:400px">
+                            <!-- Price -->
+                            <div class="price-start">
+                                </div>
+                            <div class="feature-content d-flex align-items-center justify-content-between" style="height:150px">
+                                <div class="feature-title">
+								 <p><?=$Title?></p>
+                                 <p><?=$branch?></p>
+                                 <p><?=$subject?></p>
+                                 <p><?=$year?></p>
+                               
+                                   <h5><?=$price?>/-</h5></br>
+								     </div>
+                                
+								<?php //for($i=1;$i<=$item_rating;$i++) :  ?>
+
+								<!-- <i class="fa fa-star" style="color:red" aria-hidden="true"></i> -->
+                               <?php // endfor; ?>
+                                    
+                            </div></a>
+                        </div>
+						<?php
+					 }
+						?>
+                        
+                        
+                    </div>
+                </div>
+            </div></br></br>
+
+<div class="container text-center">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+  </div>
+</div>
+</body>
